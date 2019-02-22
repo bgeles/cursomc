@@ -29,8 +29,10 @@ public class Pedido implements Serializable {
 	@JsonFormat(pattern="dd/MM/yyyy HH:mm")
 	private Date instante;
 	
+	
 	@OneToOne(cascade=CascadeType.ALL, mappedBy="pedido")
 	private Pagamento pagamento;
+	
 	
 	@ManyToOne
 	@JoinColumn(name="cliente_id")
@@ -50,6 +52,7 @@ public class Pedido implements Serializable {
 	public Pedido(Integer id, Date instante, Cliente cliente, Endereco enderecoDeEntrega) {
 		super();
 		this.id = id;
+		this.instante = instante;
 		this.cliente = cliente;
 		this.enderecoDeEntrega = enderecoDeEntrega;
 	}
