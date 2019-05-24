@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 import com.brunoglauco.cursomc.domain.Categoria;
 import com.brunoglauco.cursomc.domain.Cidade;
@@ -32,7 +33,7 @@ import com.brunoglauco.cursomc.repositories.PedidoRepository;
 import com.brunoglauco.cursomc.repositories.ProdutoRepository;
 
 @SpringBootApplication
-public class CursomcApplication implements CommandLineRunner{
+public class CursomcApplication extends SpringBootServletInitializer implements CommandLineRunner{
 
 	@Autowired
 	private CategoriaRepository categoriaRepository;
