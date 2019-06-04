@@ -1,4 +1,4 @@
-package com.brunoglauco.cursomc.domain;
+     package com.brunoglauco.cursomc.domain;
 
 import java.io.Serializable;
 import java.util.Date;
