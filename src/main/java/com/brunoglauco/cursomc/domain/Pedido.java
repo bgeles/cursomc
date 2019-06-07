@@ -139,6 +139,21 @@ public class Pedido implements Serializable {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Pedido número: ");
+		builder.append(getId());
+		builder.append(" ,Instante: ");
+		builder.append(getInstante());
+		for (ItemPedido ip : getItens()) {
+			builder.append(ip.toString());
+		}
+		
+		builder.append("Valor total: ");
+		return builder.toString();
+	}
 
+	
 	
 }
