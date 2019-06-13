@@ -21,7 +21,7 @@ public abstract class AbstractEmailService implements EmailService {
 
 	protected SimpleMailMessage prepareSimpleMailMessageFromPedido(Categoria obj) {
 		SimpleMailMessage sm = new SimpleMailMessage();
-		sm.setTo("Email Fake");
+		sm.setTo("bglauco@corpus.com.br");
 		sm.setFrom(sender);
 		sm.setSubject("Pedido confirmado! Código: " + obj.getId());
 		sm.setSentDate(new Date(System.currentTimeMillis()));
