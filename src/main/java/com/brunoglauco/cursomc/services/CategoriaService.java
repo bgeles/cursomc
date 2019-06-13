@@ -11,7 +11,6 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.brunoglauco.cursomc.domain.Categoria;
-import com.brunoglauco.cursomc.domain.Cliente;
 import com.brunoglauco.cursomc.dto.CategoriaDTO;
 import com.brunoglauco.cursomc.repositories.CategoriaRepository;
 import com.brunoglauco.cursomc.services.exceptions.DataIntegrityException;
@@ -22,6 +21,9 @@ public class CategoriaService {
 	
 	@Autowired
 	private CategoriaRepository repo;
+	
+	@Autowired
+	private EmailService emailService;
 
 	public Categoria find(Integer id) {
 		Optional<Categoria> obj = repo.findById(id);
@@ -31,6 +33,7 @@ public class CategoriaService {
 
 	public Categoria insert(Categoria obj) {
 		obj.setId(null);
+		emailService.sendOrderConfirmationEmail(obj);
 		return repo.save(obj);
 	}
 
