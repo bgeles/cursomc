@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title th:remove="all">Order Confirmation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div>
+		<h1>
+			Pedido número: <span th:text="${pedido.id}"> </span>
+		</h1>
+		<p>
+			Instante: <span
+				th:text="${#dates.format(pedido.id)}"></span>
+		</p>
+		<p>
+			Cliente: <span th:text="${pedido.id}"></span>
+		</p>
+		<p>
+			Situação do pagamento: <span
+				th:text="${pedido.id}"></span>
+		</p>
+		<h3>Detalhes do pedido:</h3>
+		<table border="1">
+			<tr>
+				<th>Produto</th>
+				<th>Quantidade</th>
+				<th>Preço unitário</th>
+				<th>Subtotal</th>
+			</tr>
+
+		</table>
+		<p>
+
+		</p>
+	</div>
+</body>
