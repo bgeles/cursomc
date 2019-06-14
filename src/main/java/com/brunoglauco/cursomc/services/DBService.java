@@ -21,6 +21,7 @@ import com.brunoglauco.cursomc.domain.PagamentoComCartao;
 import com.brunoglauco.cursomc.domain.Pedido;
 import com.brunoglauco.cursomc.domain.Produto;
 import com.brunoglauco.cursomc.domain.enums.EstadoPagamento;
+import com.brunoglauco.cursomc.domain.enums.Perfil;
 import com.brunoglauco.cursomc.domain.enums.TipoCliente;
 import com.brunoglauco.cursomc.repositories.CategoriaRepository;
 import com.brunoglauco.cursomc.repositories.CidadeRepository;
@@ -119,13 +120,21 @@ public class DBService {
 		Cliente cli1 = new Cliente(null,"Maria Silva","bglauco@gmail.com","333333333",TipoCliente.PESSOAFISICA,pe.encode("123"));
 		cli1.getTelefones().addAll(Arrays.asList("123456789","1316789988"));
 		
+		
+		Cliente cli2 = new Cliente(null,"Ana Costa","bgleles@gmail.com","333333333",TipoCliente.PESSOAFISICA,pe.encode("123"));
+		cli2.addPerfil(Perfil.ADMIN);
+		cli2.getTelefones().addAll(Arrays.asList("123456789","1316789988"));
+
+		
 		Endereco e1 = new Endereco(null,"Rua Floes","300","Apto 303","Jardim","3888488", cli1,c1);
 		Endereco e2 = new Endereco(null,"Avenida Matos","200","Casa 254","Bairro","3888488", cli1,c2);
+		Endereco e3 = new Endereco(null,"Avenida Matos","200","Casa 254","Bairro","3888488", cli2,c2);
 		
 		cli1.getEnderecos().addAll(Arrays.asList(e1,e2));
+		cli2.getEnderecos().addAll(Arrays.asList(e3));
 		
-		clienteRepository.save(cli1);
-		enderecoRepository.saveAll(Arrays.asList(e1,e2));
+		clienteRepository.saveAll(Arrays.asList(cli1,cli2));
+		enderecoRepository.saveAll(Arrays.asList(e1,e2,e3));
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 		
