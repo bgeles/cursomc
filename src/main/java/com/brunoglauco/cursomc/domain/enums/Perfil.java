@@ -17,6 +17,10 @@ public enum Perfil {
 		return cod;
 	}
 	
+	public String getDescricao() {
+		return descricao;
+	}
+	
 	public static Perfil toEnum(Integer cod) {
 		
 		if (cod == null) {
